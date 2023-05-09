@@ -1,0 +1,4 @@
+class astonConfigurator:
+    def __init__(self):
+        self.available_colours_aston = ["Shaken not stirred Silver", "Money Penny Purple"]
+        self.available_accessories_aston = ["Headlight Machine Guns", "Bulletproof Chassis"]

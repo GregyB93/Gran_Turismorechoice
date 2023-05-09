@@ -1,0 +1,16 @@
+
+
+
+
+
+
+    class deloreanConfigurator:
+        def __init__(self):
+        self.available_colours_delorean = ["Simple Silver", "Futuristic Fuchsia", "Tire flame red"]
+        self.available_accessories_delorean = ["Flux Capacitor", "Mr Fusion", "Flight Capabilities"]
+
+        def configure(self):
+        print("Welcome to Gb Motors")
+        print("Please select a model: ")
+            for model in self.available.models:
+                print(model)
