@@ -7,37 +7,12 @@ class Car:
 
     def details(self):
         print(
-            "Model: " + self.model + "\nColour: " + self.colour + "\nAccessories: " + ", ".join(self.accessories) +
-            "\nPrice: £" + str(self.price))
+            "Model: " + self.model + "\nColour: " + self.colour + "\nAccessories: " + ", ".join(self.accessories) + "\nPrice: £" + str(self.price))
 
 
-class Colour:
-    def __init__(self, name, colour_price):
-        self.name = name
-        self.colour_price = colour_price
-
-
-class Accessory:
-    def __init__(self, name, accessory_price):
-        self.name = name
-        self.accessory_price = accessory_price
-
-
-# Base Car Models
 Delorean = Car("1985 DMC Delorean", "Standard Silver", [], 35000)
 Aston = Car("1963 Aston Martin DB5", "Shaken not Stirred Silver", [], 7000000)
 Cadillac = Car("1959 Cadillac Miller-Meteor Sentinel", "Ghostly White", [], 15000)
-
-# Colours
-StandardSilver = Colour("Standard Silver", 0)
-FuturisticFuchsia = Colour("Futuristic Fuschia", 50)
-TireFlameRed = Colour("Tire Flame Red", 100)
-ShakenNotStirredSilver = Colour("Shaken not Stirred Silver", 0)
-MoneyPennyPurple = Colour ("Money Penny Purple", 99)
-BrownJamesBrown = ("Brown... James Brown", 199)
-ClassicWhiteandRed = Colour("Classic White and Red", 0)
-EctoplasmGreen = Colour("Ectoplasm Green", 5)
-CrossedStreamOrange = Colour("Crossed Stream Orange", 250)
 
 while True:
     print('''
