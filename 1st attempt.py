@@ -1,3 +1,4 @@
+# Define Car
 class Car:
     def __init__(self, model, colour, accessories, price):
         self.model = model
@@ -5,15 +6,21 @@ class Car:
         self.accessories = accessories
         self.price = price
 
+    # This method displays the current configuration of car
     def details(self):
-        print(
-            "Model: " + self.model + "\nColour: " + self.colour + "\nAccessories: " + ", ".join(self.accessories) + "\nPrice: £" + str(self.price))
+        print(f""
+              f"Model: {self.model}\n"
+              f"Colour: {self.colour}\n"
+              f"Accessories: {'.'.join(self.accessories)}\n"
+              f"Price: £{self.price}")
 
 
+# Base Car Models
 Delorean = Car("1985 DMC Delorean", "Standard Silver", [], 35000)
 Aston = Car("1963 Aston Martin DB5", "Shaken not Stirred Silver", [], 7000000)
 Cadillac = Car("1959 Cadillac Miller-Meteor Sentinel", "Ghostly White", [], 15000)
 
+# User selects Model
 while True:
     print('''
 Welcome to Movie Motors
@@ -23,15 +30,15 @@ Please select your model:
 2. 1963 Aston Martin DB5
 3. 1959 Cadillac Miller-Meteor Sentinel
 ''')
-
     model_selection = input("Enter a number 1 - 3: ")
+    # User selects Delorean
     while True:
         if model_selection == "1":
+            # Change Delorean colour
             while True:
                 print()
                 Delorean.details()
-                print()
-                print("Would you like to change colour? ")
+                print("\nWould you like to change colour? ")
                 change_colour = input("Enter Y/N: ")
                 if change_colour.capitalize() == "Y":
                     print('''
@@ -57,13 +64,16 @@ Available colours:
                         delorean_colour = input("Enter a selection 1 - 3: ")
                 else:
                     break
-            print()
-            print("Colour updated to: " + Delorean.colour)
+            print("\nColour updated to: " + Delorean.colour)
+            # Display current configuration
             Delorean.details()
+
+            # This list stops duplicate accessories being added
             accessories_added = []
+
+            # Add accessories to Delorean
             while True:
-                print()
-                print("Would you like to add any accessories?")
+                print("\nWould you like to add any accessories?")
                 print('''
 Available accessories:
 1. Flux Capacitor +£1210
@@ -91,13 +101,11 @@ Available accessories:
                     print("Done adding accessories.")
                     break
                 else:
-                    print()
-                    print("You already have that! Please enter 1, 2, 3, or 4.")
+                    print("\nYou already have that! Please enter 1, 2, 3, or 4.")
 
-            print()
-            print("Here's your car: ")
+            print("\nHere's your car: ")
             Delorean.details()
-            print("Would you like to choose another model?")
+            print("\nWould you like to choose another model?")
             choose_another_model = input("Enter Y/N: ")
             if choose_another_model.capitalize() == "N":
                 print("Enjoy your new car!")
@@ -107,12 +115,13 @@ Available accessories:
         break
 
     while True:
+        # Aston selected
         if model_selection == "2":
             while True:
                 print()
                 Aston.details()
-                print()
-                print("Would you like to change colour? ")
+                # Change Aston colour
+                print("\nWould you like to change colour? ")
                 change_colour = input("Enter Y/N: ")
                 if change_colour.capitalize() == "Y":
                     print('''
@@ -138,13 +147,11 @@ Available colours:
                         aston_colour = input("Enter a selection 1 - 3: ")
                 else:
                     break
-            print()
-            print("Colour updated to: " + Aston.colour)
+            print("\nColour updated to: " + Aston.colour)
             Aston.details()
             accessories_added = []
             while True:
-                print()
-                print("Would you like to add any accessories?")
+                print("\nWould you like to add any accessories?")
                 print('''
 Available accessories:
 1. Passenger Ejector Seat +£1999
@@ -175,8 +182,7 @@ Available accessories:
                     print()
                     print("You already have that! Please enter 1, 2, 3, or 4.")
 
-            print()
-            print("Here's your car: ")
+            print("\nHere's your car: ")
             Aston.details()
             print("Would you like to choose another model?")
             choose_another_model = input("Enter Y/N: ")
@@ -187,83 +193,78 @@ Available accessories:
                 break
         break
 
-    while True:
-        if model_selection == "3":
-            while True:
-                print()
-                Cadillac.details()
-                print()
-                print("Would you like to change colour? ")
-                change_colour = input("Enter Y/N: ")
-                if change_colour.capitalize() == "Y":
-                    print('''
+        # Cadillac selected
+    if model_selection == "3":
+        while True:
+            print()
+            Cadillac.details()
+            print("\nWould you like to change colour? ")
+            change_colour = input("Enter Y/N: ")
+            if change_colour.capitalize() == "Y":
+                print('''
 Available colours:
 1. Classic White and Red + £0  
 2. Ectoplasm Green +£5
 3. Crossed Stream Orange +£250
 ''')
-                    cadillac_colour = input("Enter a selection 1 - 3: ")
-                    if cadillac_colour == "1":
-                        Cadillac.colour = "Classic White and Red"
-                        break
-                    elif cadillac_colour == "2":
-                        Cadillac.colour = "Ectoplasm Green"
-                        Cadillac.price += 5
-                        break
-                    elif cadillac_colour == "3":
-                        Cadillac.colour = "Crossed Stream Orange"
-                        Cadillac.price += 250
-                        break
-                    else:
-                        print("Invalid selection. Please enter 1, 2, or 3.")
-                        cadillac_colour = input("Enter a selection 1 - 3: ")
-                else:
+                cadillac_colour = input("Enter a selection 1 - 3: ")
+                if cadillac_colour == "1":
+                    Cadillac.colour = "Classic White and Red"
                     break
-            print()
-            print("Colour updated to: " + Cadillac.colour)
-            Cadillac.details()
-            accessories_added = []
-            while True:
-                print()
-                print("Would you like to add any accessories?")
-                print('''
+                elif cadillac_colour == "2":
+                    Cadillac.colour = "Ectoplasm Green"
+                    Cadillac.price += 5
+                    break
+                elif cadillac_colour == "3":
+                    Cadillac.colour = "Crossed Stream Orange"
+                    Cadillac.price += 250
+                    break
+                else:
+                    print("Invalid selection. Please enter 1, 2, or 3.")
+                    cadillac_colour = input("Enter a selection 1 - 3: ")
+            else:
+                break
+        print("\nColour updated to: " + Cadillac.colour)
+        Cadillac.details()
+        accessories_added = []
+        while True:
+            print("\nWould you like to add any accessories?")
+            print('''
 Available accessories:
 1. Siren/loudspeaker Combo +99
 2. Ghostly Goo Deep Clean +75
 3. Proton Pack Storage +250
 4. Done
 ''')
-                cadillac_accessories = input("Enter a selection 1 - 4: ")
-                if cadillac_accessories == "1" and "Siren/loudspeaker Combo" not in accessories_added:
-                    Cadillac.accessories.append("Siren/loudspeaker Combo")
-                    Cadillac.price += 99
-                    accessories_added.append("Siren/loudspeaker Combo")
-                    print("You've added: Siren/loudspeaker Combo")
-                elif cadillac_accessories == "2" and "Ghostly Goo Deep Clean" not in accessories_added:
-                    Cadillac.accessories.append("Ghostly Goo Deep Clean")
-                    Cadillac.price += 75
-                    accessories_added.append("Ghostly Goo Deep Clean")
-                    print("You've added: Ghostly Goo Deep Clean")
-                elif cadillac_accessories == "3" and "Proton Pack Storage" not in accessories_added:
-                    Cadillac.accessories.append("Proton Pack Storage")
-                    Cadillac.price += 250
-                    accessories_added.append("Proton Pack Storage")
-                    print("You've added: Proton Pack Storage")
-                elif cadillac_accessories == "4":
-                    print("Done adding accessories.")
-                    break
-                else:
-                    print()
-                    print("You already have that! Please enter 1, 2, 3, or 4.")
-
-            print()
-            print("Here's your car: ")
-            Cadillac.details()
-            print("Would you like to choose another model?")
-            choose_another_model = input("Enter Y/N: ")
-            if choose_another_model.capitalize() == "N":
-                print("Enjoy your new car!")
-                exit()
-            elif choose_another_model.capitalize == "Y":
+            cadillac_accessories = input("Enter a selection 1 - 4: ")
+            if cadillac_accessories == "1" and "Siren/loudspeaker Combo" not in accessories_added:
+                Cadillac.accessories.append("Siren/loudspeaker Combo")
+                Cadillac.price += 99
+                accessories_added.append("Siren/loudspeaker Combo")
+                print("You've added: Siren/loudspeaker Combo")
+            elif cadillac_accessories == "2" and "Ghostly Goo Deep Clean" not in accessories_added:
+                Cadillac.accessories.append("Ghostly Goo Deep Clean")
+                Cadillac.price += 75
+                accessories_added.append("Ghostly Goo Deep Clean")
+                print("You've added: Ghostly Goo Deep Clean")
+            elif cadillac_accessories == "3" and "Proton Pack Storage" not in accessories_added:
+                Cadillac.accessories.append("Proton Pack Storage")
+                Cadillac.price += 250
+                accessories_added.append("Proton Pack Storage")
+                print("You've added: Proton Pack Storage")
+            elif cadillac_accessories == "4":
+                print("Done adding accessories.")
                 break
-        break
+            else:
+                print("\nYou already have that! Please enter 1, 2, 3, or 4.")
+
+        print("\nHere's your car: ")
+        Cadillac.details()
+        print("Would you like to choose another model?")
+        choose_another_model = input("Enter Y/N: ")
+        if choose_another_model.capitalize() == "N":
+            print("Enjoy your new car!")
+            exit()
+        elif choose_another_model.capitalize == "Y":
+            break
+    break
